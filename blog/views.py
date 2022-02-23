@@ -1,4 +1,3 @@
-from turtle import title
 from django.shortcuts import render,HttpResponseRedirect
 from django.contrib.auth import authenticate,login as auth_login,logout
 from .forms import Login_form
