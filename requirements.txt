@@ -12,7 +12,6 @@ idna==2.10
 Pillow==9.0.0
 pytz==2021.1
 requests==2.27.1
-six==1.16.0
 sqlparse==0.4.1
 urllib3==1.26.4
 waitress==2.0.0
