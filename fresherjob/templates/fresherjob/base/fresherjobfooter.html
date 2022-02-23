@@ -1,0 +1,40 @@
+{% load static %}
+<footer class="font-serif">
+    <div
+        class="p-5 m-0 text-white bg-slate-800 flex-wrap h-auto flex justify-between lg:flex lg:items-center lg:justify-between">
+
+        <ul class="justify-start mx-5">
+            <li class="font-bold text-2xl"><span class="text-indigo-600">CodeWithAnmol</span> <span>Fresherjob</span></li>
+            <li class="text-zinc-200 w-auto">
+                One Big Step to get your
+            </li>
+            <li class="text-zinc-200">
+                Dream Jobs
+            </li>
+            <li class="text-zinc-200 w-auto">
+                Currently v1.2.0
+            </li>
+            <li class="text-zinc-200 w-auto">
+                © 2022 Codewithanmol All rights reserved
+            </li>
+        </ul>
+
+        <ul class="justify-items-center mt-2 mx-5">
+            <li class="underline">All Links</li>
+            <li class="hover:text-zinc-400"><a href="{% url 'postjob' %}">Post Job vacancies</a></li>
+            <li class="hover:text-zinc-400"><a href="{% url 'about' %}">About</a></li>
+            <li class="hover:text-zinc-400"><a href="{% url 'contectus' %}">Contact Us</a></li>
+            <li class="hover:text-zinc-400"><a href="{% url 'term_conditions' %}">Term & Conditions</a></li>
+        </ul>
+        <ul class="justify-items-end mt-2 mx-5">
+            <li class="underline">External Links</li>
+            <li class="hover:text-zinc-400"><a href="https://telegram.me/share/url?url=https://t.me/Fresher_job" target="_blank">Join Telegram</a></li>
+            <li class="hover:text-zinc-400"><a href="#">Follow on Instagram</a></li>
+            <li class="hover:text-zinc-400"><a href="{% url 'homepage' %}">Codewithanmol</a></li>
+            {% if not request.user.is_authenticated %}
+            <li class="text-zinc-500 hover:text-zinc-900"><a href="{% url 'login' %}">Admin Login</a></li>
+            {% endif %}
+        </ul>
+
+    </div>
+</footer>

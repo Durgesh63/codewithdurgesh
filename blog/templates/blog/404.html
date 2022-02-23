@@ -1,0 +1,36 @@
+{% extends 'blog/homepage.html' %}
+{% load static %}
+{% block seo %}
+<title> 404 Page not Found </title>
+<!-- Primary Meta Tags -->
+<meta name="title" content=" 404 Page not Found ">
+<meta name="description" content="Oops! Looks like you followed a bad link. If you think this is a problem with us, please tell us">
+<meta name="keywords" content="codewithanmol ,code with anmol , Fresher, 404 page not found , fresher job , Fresherjob">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{current_path}}">
+<meta property="og:title" content=" 404 Page not Found ">
+<meta property="og:description" content="Oops! Looks like you followed a bad link. If you think this is a problem with us, please tell us">
+<meta property="og:image" content="https://res.cloudinary.com/anmoldev/image/upload/v1645346723/404_jxlb4e.png">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{current_path}}">
+<meta property="twitter:title" content=" 404 Page not Found ">
+<meta property="twitter:description" content="Oops! Looks like you followed a bad link. If you think this is a problem with us, please tell us">
+<meta property="twitter:image" content="https://res.cloudinary.com/anmoldev/image/upload/v1645346723/404_jxlb4e.png">
+{% endblock seo %}
+
+{% block main %}
+    <div class="lg:-mt-6 mt-20 bg-slate-50">
+        <div class="grid grid-cols-2">
+            <div class="lg:col-span-1 col-span-2">
+                <img class="" src="https://res.cloudinary.com/anmoldev/image/upload/v1645346723/404_jxlb4e.png" alt="img">
+            </div>
+            <div class="lg:col-span-1 col-span-2 text-center my-5 lg:my-48">
+                <div class="my-4 text-4xl lg:text-5xl font-extrabold font-serif ">Page not found</div>
+                <div class="my-4 font-serif font-light text-slate-800 remove-arrow">Oops! Looks like you followed a bad link. If you think this is a problem with us, please tell us.</div>
+                <a href="{% url 'homepage' %}" class="bg-blue-700 text-sm py-3 px-6 rounded-md text-white"> &#8672; &nbsp; Go back home </a>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

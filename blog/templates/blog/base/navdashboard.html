@@ -1,0 +1,74 @@
+{% load static %}
+    <nav
+    class="flex px-2 flex-wrap items-center justify-between w-full text-gray-700 bg-gray-50 border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <div>
+        <a href="{% url 'dashboard' %}" class="inline-flex active:text-blue-500 hover:text-blue-500 bi bi-house-door-fill items-center text-sm font-medium text-gray-700 ">&NonBreakingSpace; Dashboard
+        </a>
+    </div>
+
+    <i class="bi text-2xl mr-2 place-items-end cursor-pointer md:hidden block bi-arrow-bar-down" id="menu_button_dashboard"></i>
+
+    <div class="hidden w-full md:flex md:items-center md:w-auto" id="btn_dashbord">
+        <ul class="pt-0 md:flex md:justify-between ">
+            <li>
+                <div class="flex items-center">
+                <a href="{% url 'newblogpost' %}" class="md:p-4 py-1 text-sm  font-medium  text-gray-700 hover:text-blue-500 ">&plus; &NonBreakingSpace;Add Blog</a>
+            </div>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <a href="{% url 'newfresherpost' %}" class="md:p-4 py-1 text-sm font-medium text-gray-700 hover:text-blue-500 md:ml-2 ">&plus; &NonBreakingSpace; Add FresherJob</a>
+                </div>
+            </li>
+            
+            <li>
+                <div class="flex items-center">
+                
+                    <a href="{% url 'seeblogpost' %}" class="md:p-4 py-1 text-sm font-medium text-gray-700 hover:text-blue-500 md:ml-2 ">&#x1F441; &NonBreakingSpace; Blog</a>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <a href="{% url 'seefresherpost' %}" class="md:p-4 py-1 text-sm font-medium text-gray-700 hover:text-blue-500 md:ml-2 ">&#x1F441; &NonBreakingSpace; FresherJob</a>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    
+                    <a href="{% url 'seecontentpost' %}" class="md:p-4 py-1 text-sm font-medium text-gray-700 hover:text-blue-500 md:ml-2 ">&#x2691;  &NonBreakingSpace;  Contectus</a>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    
+                    <a href="{% url 'seejobvacanciespost' %}" class="md:p-4 py-1 text-sm font-medium text-gray-700 hover:text-blue-500 md:ml-2 ">&#x26C3; &NonBreakingSpace; Jov vacancies</a>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <a href="{% url 'sendtelegrammsg' %}" class="md:p-4 py-1 text-sm bi bi-telegram font-medium text-gray-700 hover:text-blue-500 md:ml-2 ">&NonBreakingSpace; Telegram</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<script>
+(function () {
+
+        const btn_button = document.querySelector('#menu_button_dashboard');
+        const btn_menu = document.querySelector('#btn_dashbord');
+
+
+        btn_button.addEventListener('click', () => {
+            btn_menu.classList.toggle('hidden');
+            if(btn_button.classList[7] == "bi-arrow-bar-down"){
+                btn_button.classList.remove('bi-arrow-bar-down');
+                btn_button.classList.add('bi-arrow-bar-up');
+            }else{
+                btn_button.classList.remove('bi-arrow-bar-up');
+                btn_button.classList.add('bi-arrow-bar-down');
+            }
+        });
+    })();
+
+</script>

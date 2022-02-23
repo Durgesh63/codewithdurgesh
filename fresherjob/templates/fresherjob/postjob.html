@@ -1,0 +1,95 @@
+{% extends 'fresherjob/fresherhomepage.html' %}
+{% load static %}
+{% block seo %}
+<title>Post Job Vacancies - codewithanmol</title>
+<!-- Primary Meta Tags -->
+<meta name="title" content="Post Job Vacancies - codewithanmol">
+<meta name="description" content="Read through the variety of  fresherjob articles and help to get the perfect and dream jobs related to your knowledge.">
+<meta name="keywords" content="codewithanmol , Fresher , fresher job , Fresherjob ,Wipro , TCS , Infosys , Google , fresherjob 2022 , 2022 batch fresher job">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{current_path}}">
+<meta property="og:title" content="Post Job Vacancies - codewithanmol">
+<meta property="og:description" content="Read through the variety of  fresherjob articles and help to get the perfect and dream jobs related to your knowledge.">
+<meta property="og:image" content="https://res.cloudinary.com/anmoldev/image/upload/v1645635518/Screenshot_from_2022-02-23_22-25-18_eoq6r9.png">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{current_path}}">
+<meta property="twitter:title" content="Post Job Vacancies - codewithanmol">
+<meta property="twitter:description" content="Read through the variety of  fresherjob articles and help to get the perfect and dream jobs related to your knowledge.">
+<meta property="twitter:image" content="https://res.cloudinary.com/anmoldev/image/upload/v1645635518/Screenshot_from_2022-02-23_22-25-18_eoq6r9.png">
+{% endblock seo %}
+{% block main %}
+<div class="mt-28 mb-6 lg:my-10 mx-2 lg:mx-10">
+    <div class="my-10 text-center font-semibold underline text-2xl">
+        Post Job Vacancies
+    </div>
+    <div class="text-sm text-red-700 my-3">
+        Your email address will not be published. All fields are Required
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="grid xl:grid-cols-2 xl:gap-6">
+            <div class="relative z-0 mb-6 w-full group">
+                <input type="email" name="email" minlength="4" id="email"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" " required="">
+                <label for="email"
+                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email Address
+                    </label>
+            </div>
+            <div class="relative z-0 mb-6 w-full group">
+                <input type="text" name="companyname" minlength="1" id="companyname"
+                    class="block py-2.5 px-0 w-full  text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" " required>
+                <label for="companyname"
+                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Company Name (Eg. Google)</label>
+            </div>
+        </div>
+        <div class="grid xl:grid-cols-2 xl:gap-6">
+            <div class="relative z-0 mb-6 w-full group">
+                <input type="text" name="locations" minlength="1" id="locations"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" " required="">
+                <label for="locations"
+                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Locations</label>
+            </div>
+            <div class="relative z-0 mb-6 w-full group">
+                <input type="text" name="role_name" minlength="1" id="role_name"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" " required="">
+                <label for="role_name"
+                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Position or Role</label>
+            </div>
+        </div>
+        <div class="grid xl:grid-cols-2 xl:gap-6">
+            <div class="relative z-0 mb-6 w-full group">
+                <input type="text" name="experience" id="experience" minlength="1"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" " required="">
+                <label for="experience"
+                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"> Experience (eg. Fresher,etc. )</label>
+            </div>
+            <div class="relative z-0 mb-6 w-full group">
+                <input type="text" name="qualifications" minlength="1" id="qualifications"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" " required="">
+                <label for="qualifications"
+                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Qualifications </label>
+            </div>
+        </div>
+        <div class="relative z-0 mb-6 w-full group">
+            <input type="url" name="application_link" id="application_link"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" ">
+            <label for="application_link"
+                class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Application Reference Link </label>
+        </div>
+        <div class="my-3" id="captchacodechecker"></div>
+        <button type="submit" id="checkcaptcha"
+            class="text-white disabled:bg-blue-400 bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" disabled>Submit</button>
+    </form>
+</div>
+<script src="https://res.cloudinary.com/anmoldev/raw/upload/v1645049473/captcha/captchachecker_bwivlh.js"></script>
+
+{% endblock main %}

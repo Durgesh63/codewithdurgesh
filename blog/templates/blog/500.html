@@ -1,0 +1,41 @@
+{% extends 'blog/homepage.html' %}
+{% load static %}
+{% block seo %}
+<title> 500 Something has gone seriously wrong </title>
+<!-- Primary Meta Tags -->
+<meta name="title" content=" 500 Something has gone seriously wrong ">
+<meta name="description" content=" It's always time for a coffee break. We should be back by the time you finish your coffee ">
+<meta name="keywords" content="codewithanmol ,code with anmol , Fresher, 404 page not found , fresher job , Fresherjob">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{current_path}}">
+<meta property="og:title" content=" 500 Something has gone seriously wrong ">
+<meta property="og:description" content=" It's always time for a coffee break. We should be back by the time you finish your coffee ">
+<meta property="og:image" content="https://res.cloudinary.com/anmoldev/image/upload/v1645346723/404_jxlb4e.png">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{current_path}}">
+<meta property="twitter:title" content=" 500 Something has gone seriously wrong ">
+<meta property="twitter:description" content=" It's always time for a coffee break. We should be back by the time you finish your coffee">
+<meta property="twitter:image" content="https://res.cloudinary.com/anmoldev/image/upload/v1645346723/404_jxlb4e.png">
+{% endblock seo %}
+{% block main %}
+
+    <!-- main content  -->
+
+    <div class="lg:-mt-6 mt-20 bg-slate-50">
+        <div class="grid grid-cols-2">
+            <div class="lg:col-span-1 col-span-2 remove-arrow">
+                <img class="" src="https://res.cloudinary.com/anmoldev/image/upload/v1645349397/500_waxipm.png" alt="">
+
+            </div>
+            <div class="lg:col-span-1 col-span-2 mx-10 lg:mx-20 my-5 lg:my-44">
+                <div class="my-4 text-xl lg:text-5xl font-extrabold font-serif">Something has gone seriously wrong</div>
+                <div class="my-4 font-serif font-light text-slate-800">It's always time for a coffee break. We should be back by the time you finish your coffee.</div>
+                <a href="{% url 'homepage' %}" class="bg-blue-700 text-sm py-3 px-6 rounded-md text-white"> &#8672; &nbsp; Go back home </a>
+            </div>
+        </div>
+    </div>
+
+<!-- footer contents  -->
+{% endblock main %}

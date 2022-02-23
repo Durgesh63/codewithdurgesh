@@ -1,0 +1,58 @@
+{% extends 'blog/homepage.html' %}
+{% load static %}
+{% block seo %}
+<title>About us</title>
+<!-- Primary Meta Tags -->
+<meta name="title" content="About us">
+<meta name="description" content="In this Website CodeWithAnmol we dropped content related to web development course and Templates with Free Video and source code">
+<meta name="keywords" content="HTML, aboutus , CSS, JavaScript, Django , CodeWithAnmol , codewithanmol ,code with anmol ,  Blogs , Blog">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{current_path}}">
+<meta property="og:title" content="About us">
+<meta property="og:description" content="In this Website CodeWithAnmol we dropped content related to web development course and Templates with Free Video and source code">
+<meta property="og:image" content="https://res.cloudinary.com/anmoldev/image/upload/v1645629950/Screenshot_from_2022-02-23_20-53-28_aynez4.png">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{current_path}}">
+<meta property="twitter:title" content="About us">
+<meta property="twitter:description" content="In this Website CodeWithAnmol we dropped content related to web development course and Templates with Free Video and source code">
+<meta property="twitter:image" content="https://res.cloudinary.com/anmoldev/image/upload/v1645629950/Screenshot_from_2022-02-23_20-53-28_aynez4.png">
+{% endblock seo %}
+{% block main %}
+<div class="bg-gradient-to-tr from-slate-800 lg:-my-10 to-slate-700 p-1">
+    <div class="text-center mt-12">
+        <span class="bg-gradient-to-r from-slate-600 to-slate-800 font-sans rounded-r-3xl rounded-tl-3xl mx-2 text-white px-4 py-2.5">About Us</span>   
+    </div>
+    <div class="text-center mx-auto mt-9 lg:mt-12 w-10/12 lg:w-9/12 text-white font-bold text-xl lg:text-6xl">
+            A small creative team excited to create beautiful things
+    </div>
+    <div class="text-center mt-1 lg:mt-4 text-md lg:text-xl font-light text-slate-400">
+        One Big Step to get your dream Job & dream website With Codewithanmol
+    </div>
+    <div class="my-8 lg:my-12">
+        <img class="mx-auto w-11/12 lg:w-9/12 rounded-2xl" src="https://res.cloudinary.com/anmoldev/image/upload/v1642441098/charles-koh-px-xoEBdkII-unsplash_1_c5272b.jpg" alt="img">
+    </div>
+    <div class="ml-2 text-center mt-16 lg:mt-36">
+        <span class="bg-gradient-to-r from-slate-600 to-slate-800 font-sans rounded-r-3xl rounded-tl-3xl mx-2 text-white px-4 py-2.5">The team</span>   
+    </div>
+    <div class="ml-2 text-center font-semibold text-white text-xl lg:text-4xl my-4">
+        Experience in design and development
+    </div>
+    <div class="my-5 lg:my-10">
+        
+            <img class="w-4/12 h-28 lg:w-2/12 lg:h-48 mx-auto rounded-2xl" src="https://res.cloudinary.com/anmoldev/image/upload/v1642443725/durgesh_jzbljp.jpg" alt="">
+            <div class="text-center mt-2 text-slate-200 font-bold">
+                <div class="mb-2">
+                    Durgesh Maurya
+                    <span class="text-slate-300">
+                       ( Admin )
+                    </span>
+                </div>
+                
+                <a href="#" class="text-slate-400 text-2xl mr-3 bi bi-instagram"></a> <a href="#" class="text-slate-400 text-2xl bi bi-telegram"></a>
+            </div>
+        
+    </div>
+</div>
+{% endblock main %}

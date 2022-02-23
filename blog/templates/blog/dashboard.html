@@ -1,0 +1,41 @@
+{% extends 'blog/homepage.html' %}
+{% load static %}
+{% load humanize %}
+{% block seo %}
+<title>Dashboard - CodeWithAnmol </title>
+<meta name="title" content="Dashboard - CodeWithAnmol">
+<meta name="description" content="Read through the variety of programming articles help in build website from CodeWithAnmol">
+{% endblock seo %}
+{% block main %}
+<div class="lg:-mt-6 mt-20 py-5 bg-slate-50">
+    {% include 'blog/base/navdashboard.html' %}
+    {% block Dashboard %}
+    <div class="lg:mx-10 lg:mt-10 my-5 lg:mb-20 mb-32 mx-5"> 
+        <div class="lg:text-4xl text-xl ">
+            Dashboard : 
+        </div>
+        <div class=" my-2 lg:mt-10 font-serif shadow-md rounded-lg bg-white p-4">
+            <div class="lg:text-xl text-md">
+                username : <span class="text-slate-700 font-serif">{{username}}</span>
+            </div>
+            <div class="lg:text-xl text-md">
+                Email Address : <span class="text-slate-700 font-serif">{{username.email}}</span>
+            </div>
+            <div class="lg:text-xl text-md">
+                Join Date :  <span class="bg-blue-100 text-blue-800 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
+                    <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                    {{username.date_joined|naturaltime}}
+                  </span> or <span class="text-slate-700 font-serif text-md lg:text-lg">{{username.date_joined}} </span>
+            </div>
+            <div class="lg:text-xl text-md">
+                Last login : <span class="bg-blue-100 text-blue-800 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
+                    <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                    {{username.last_login|naturaltime}}
+                  </span> 
+            </div>
+        </div>
+    </div>
+    {% endblock Dashboard %}
+</div>
+
+{% endblock main %}

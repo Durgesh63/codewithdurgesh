@@ -1,0 +1,201 @@
+{% extends 'fresherjob/fresherhomepage.html' %}
+{% load static %}
+{% load humanize %}
+{% block seo %}
+<title>Editpost Fresherjob - CodeWithAnmol </title>
+<meta name="title" content="Editpost Fresherjob - CodeWithAnmol">
+<meta name="description" content="Read through the variety of  fresherjob articles and help to get the perfect and dream jobs related to your knowledge.">
+{% endblock seo %}
+{% block main %}
+{% include 'blog/base/model.html' %}
+
+<div class="hidden" id="alert">
+    <div class="flex p-4 mb-2 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+        <svg class="inline flex-shrink-0 mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+        <div>
+          <span class="font-medium">Success alert!</span> Change a few things up and try submitting.
+        </div>
+    </div>
+</div>
+
+<!-- main content  -->
+<div class="gap-2 my-5 md:mx-5 lg:mx-10 mx-3 grid grid-cols-4">  
+    <div class="lg:col-span-3 col-span-4 p-3 border-2 rounded-lg">
+       <div class="my-2">
+           <label class="form-label inline-block mb-2 font-sans" for="title">Post Title  <span id="slug" class="hidden">{{data.slug}}</span></label>
+           <input class="form-control w-full p-1 border border-gray-400 rounded-md" value="{{data.title}}" type="text" name="title" id="title">  
+       </div>
+       <div class="p-3 border-2 mt-5 shadow-sm rounded-lg">
+            <div class="font-bold mb-2"> Jobs Qualifications Details : </div>
+            <div class="grid grid-cols-2 gap-2" >
+                <div class="lg:col-span-1 col-span-2">
+                    <input type="text" id="company_name" value="{{data.company}}" placeholder="Company name *" class="text-black rounded-md w-full my-1 text-base   ">
+                    <input type="text" id="salary" value="{{data.salary}}" placeholder="Salary * eg:- 4.5LPA" class=" text-black rounded-md my-1 w-full text-base">
+                    <input type="text" id="location" value="{{data.location}}" placeholder="Locations * eg:- All India" class=" text-black rounded-md my-1 w-full text-base">
+                    <input type="text" id="role_name" value="{{data.role_name}}" placeholder="Role name * eg:- Software Developer" class="text-black rounded-md my-1 w-full 2 text-base">
+                </div>
+                <div class="lg:col-span-1 col-span-2">
+                    <input type="text" id="job_experience" value="{{data.job_experience}}" placeholder="Job Experience * eg:- Fresher , Experience ,etc" class="text-black my-1 rounded-md w-full text-base">
+                    <input type="text" id="passing_year" value="{{data.passing_year}}" placeholder="Passing year * eg:- 2021/2022" class="text-black rounded-md my-1 w-full text-base">
+                    <input type="text" id="degree" value="{{data.degree}}" placeholder="Degree * eg:- B.Tech , M.Tech ,etc" class="text-black rounded-md my-1 w-full text-base">
+                </div>
+            </div>
+        </div>
+        <div class="mt-2">
+            <div id="editor">{% autoescape off %}{{data.description}}{% endautoescape %}</div>
+        </div>
+    </div>
+    <div class="lg:col-span-1 col-span-4 p-3">
+        <div class="p-5 border-2 shadow-sm rounded-lg">
+            <div class="font-bold mb-5">Post Details :  <span class="bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
+                <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                {{data.date|naturaltime}}
+              </span></div>
+            <div class="text-center mb-8">
+                <span id="draft" class="text-center cursor-pointer px-3 py-2 rounded-md text-white hover:bg-green-600 bg-green-700 "> Save as Draft</span>
+                <span id="myBtn" class="ml-8 text-center cursor-pointer px-3 py-2 rounded-md btn-danger"> Preview</span>
+            </div>
+            <div class="mb-5 text-sm">
+                Status : <span class="bg-gray-300 text-slate-700 rounded-md px-2 py-1"> {{data.publish}} </span>
+            </div>
+            <div>
+                <div id="published" class="text-center p-2 rounded-md text-white cursor-pointer hover:bg-blue-400 bg-blue-500"> Published </div>
+            </div>
+        </div>
+        <div class="p-3 border-2 mt-5 shadow-sm rounded-lg">
+            <div class="font-bold mb-2"> Application form link : </div>
+            <input type="url" class="form-control w-full p-1 rounded-md" value="{{data.application_link}}" name="Application_link" id="Application_link">
+        </div>
+        <div class="py-5 px-3 border-2 mt-5 shadow-sm rounded-lg">
+            <div class="font-bold mb-2">Thumbnail Link :</div>
+            <input type="url" onchange="imgSource()" class="form-control w-full p-1 rounded-md" value="{{data.image}}" name="thumbnail" id="thumbnail">
+            
+            <div>
+                <img src="" id="thumbnail_img" class="w-fit mt-1 border-2">
+            </div>
+        </div>
+        
+        <div class="p-3 border-2 mt-5 shadow-sm rounded-lg">
+            <div class="font-bold mb-2"> SEO Tilte : </div>
+            <textarea name="seo_title" id="seo_title" class="w-full rounded-md">{{data.meta_title}}</textarea>
+        </div>
+        
+        <div class="p-3 border-2 mt-5 shadow-sm rounded-lg">
+            <div class="font-bold mb-2"> Sort Descriptions : </div>
+            <textarea name="seo_desc" id="seo_desc" class="w-full rounded-md">{{data.meta_short_description}}</textarea>
+        </div>
+        <div class="p-3 border-2 mt-5 shadow-sm rounded-lg">
+            <div class="font-bold mb-2"> SEO Tags : </div>
+            <textarea name="seo_tag" id="seo_tag" class="w-full rounded-md">{{data.meta_tags}}</textarea>
+        </div>
+        <script src="https://res.cloudinary.com/anmoldev/raw/upload/v1644252324/ckeditor/build/ckeditor_mp4cj5.js"></script>
+    <script>
+    // priview img 
+    function imgSource(){
+        if(document.getElementById("thumbnail").value.length >= 5){
+            document.getElementById("thumbnail_img").src = document.getElementById("thumbnail").value ;
+        }else{
+            document.getElementById("thumbnail_img").style.visibility = "hidden";
+        }
+    };
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("myBtn");
+    var close = document.getElementById("close");
+    btn.onclick = function () {
+        modal.style.display = "block";
+        var result = document.getElementById("preview_result");
+        var title = document.getElementById("title")
+        var data = `<div class="text-center text-xl lg:text-3xl font-bold"> ${title.value} </div><div class="my-5"><table class="lg:w-8/12 w-full mx-auto"><tr><th class="lg:py-3 py-1 lg:px-4 px-2 text-sm font-medium "> Company Name </th><th class="lg:py-3 py-1 lg:px-4 px-2 text-sm font-medium"> ${document.getElementById("company_name").value} </th></tr><tr><th class="lg:py-3 py-1 lg:px-4 px-2 text-sm font-medium">Post Name</th><th class="lg:py-3 py-1 lg:px-4 px-2 text-sm font-medium">${document.getElementById("role_name").value}</th></tr><tr><th class="lg:py-3 py-1 lg:px-4 px-2 text-sm font-medium">Salary</th><th class="lg:py-3 py-1 lg:px-4 px-2 text-sm font-medium">${document.getElementById("salary").value}</th></tr><tr><th class="lg:py-3 py-1 lg:px-4 px-2 text-sm font-medium "> Experience </th><th class="lg:py-3 py-1 lg:px-4 px-2 text-sm font-medium">${document.getElementById("job_experience").value}</th></tr><tr><th class="lg:py-3 py-1 lg:px-4 px-2 text-sm font-medium "> Job Location </th> <th class="lg:py-3 py-1 lg:px-4 px-2 text-sm font-medium"> ${document.getElementById("location").value}</th></tr><tr><th class="lg:py-3 py-1 lg:px-4 px-2 text-sm font-medium ">Qualifications</th><th class="lg:py-3 py-1 lg:px-4 px-2 text-sm font-medium">${document.getElementById("passing_year").value} , ${document.getElementById("degree").value}</th></tr></table></div><div class="my-3">${editor.getData()}</div><div class="text-center my-10"><a href="${document.getElementById("Application_link").value}" target="_blank" class="btn-readmore rounded-md lg:rounded-lg shadow-lg p-2 lg:p-4">Apply From Here</a></div>`;result.innerHTML = data;};
+    
+        close.onclick = function () {
+        modal.style.display = "none";
+            };            
+
+    // editor 
+    ClassicEditor
+        .create( document.querySelector( '#editor' ), {
+            licenseKey: '',
+        } )
+        .then( editor => {
+            window.editor = editor;
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+
+
+    // post data 
+
+    
+    function mySend(publish) {
+        var title = document.getElementById("title").value;
+        var thumbnail = document.getElementById("thumbnail").value;
+        var seo_title = document.getElementById("seo_title").value;
+        var seo_desc = document.getElementById("seo_desc").value;
+        var seo_tag = document.getElementById("seo_tag").value;
+
+        var application_link = document.getElementById("Application_link").value;
+        var company_name = document.getElementById("company_name").value;
+        var salary = document.getElementById("salary").value;
+        var locations = document.getElementById("location").value;
+        var role_name = document.getElementById("role_name").value;
+        var job_experience = document.getElementById("job_experience").value;
+        var passing_year = document.getElementById("passing_year").value;
+        var degree = document.getElementById("degree").value;       
+        var slug = document.getElementById("slug").innerHTML;
+        var description = editor.getData();
+        
+        var element = document.getElementById("alert");
+        element.classList.add("hidden");
+        var loading = `<svg role="status" class="inline mr-3 w-4 h-4 text-white animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB"/>
+    <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentColor"/>
+    </svg>
+    Loading...`;
+        if (publish == "draft"){
+            document.getElementById("draft").innerHTML = loading;
+        }else{
+            document.getElementById("published").innerHTML = loading;
+        }
+        $.ajax({
+                url: "{% url 'editpostdata' %}",
+                type:"post",
+                data:{model_name : "Fresher",slug:slug,publish : publish ,title : title, description : description,thumbnail : thumbnail , api : "1@asRsus$&sdnzh?sdbxjdAVShagdnhassff", seo_title : seo_title , seo_desce : seo_desc , seo_tag : seo_tag ,degree:degree,passing_year:passing_year,job_experience:job_experience,role_name:role_name,application_link:application_link,company_name:company_name,salary:salary,location:locations },
+                success:function(deta){
+                    location.reload();
+                    element.classList.remove("hidden");
+                    console.log("data send");
+                    if (publish == "draft"){
+                        document.getElementById("draft").innerHTML = "Save as Draf";
+                    }else{
+                        document.getElementById("published").innerHTML = "Published";
+                    }
+
+                },
+                complete: function (data){
+                    element.classList.remove("hidden");
+                    console.log("data send");
+                    if (publish == "draft"){
+                        document.getElementById("draft").innerHTML = "Save as Draf";
+                    }else{
+                        document.getElementById("published").innerHTML = "Published";
+                    }
+
+                },
+        });
+    };
+    var draft = document.getElementById("draft");
+    draft.addEventListener('click',()=>{
+        mySend("draft")
+    });
+    var publish = document.getElementById("published");
+    publish.addEventListener('click',()=>{
+        mySend("publish")
+    });
+</script>
+    </div>
+</div>
+
+{% endblock main %}
