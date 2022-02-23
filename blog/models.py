@@ -18,7 +18,7 @@ class Blogs(models.Model):
     updatedate = models.DateTimeField(auto_now = True,verbose_name = 'Update Date')
     slug = AutoSlugField(populate_from='title',unique_with=['id'],null=True,blank=True)
     description = models.TextField(null=True,blank=True,verbose_name = 'Blog Description')
-    image = models.URLField(max_length =500,null=True,blank=True,verbose_name = 'Image link')
+    image = models.URLField(max_length =500,null=True,default="https://res.cloudinary.com/anmoldev/image/upload/v1645629950/Screenshot_from_2022-02-23_20-53-28_aynez4.png",blank=True,verbose_name = 'Image link')
 
     meta_title = models.CharField(max_length=100,verbose_name = 'Meta Title',null=True,blank=True)
     meta_short_description = models.CharField(max_length=150,verbose_name = 'Short Description',null=True,blank=True)

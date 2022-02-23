@@ -50,26 +50,7 @@
   {% endif %}
 
   <script>
-    const toggleCollapse = (elementId, show = true) => {
-      const collapseEl = document.getElementById(elementId);
-
-      if (show) {
-        collapseEl.classList.remove('hidden');
-      } else {
-        collapseEl.classList.add('hidden');
-      }
-    };
-
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('[data-collapse-toggle]').forEach(function (collapseToggleEl) {
-        var collapseId = collapseToggleEl.getAttribute('data-collapse-toggle');
-        collapseToggleEl.addEventListener('click', function () {
-          toggleCollapse(collapseId, document.getElementById(collapseId).classList.contains('hidden'));
-        });
-      });
-    });
-
-    window.toggleCollapse = toggleCollapse;
+const toggleCollapse=(e,t=!0)=>{const l=document.getElementById(e);t?l.classList.remove("hidden"):l.classList.add("hidden")};document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll("[data-collapse-toggle]").forEach(function(e){var t=e.getAttribute("data-collapse-toggle");e.addEventListener("click",function(){toggleCollapse(t,document.getElementById(t).classList.contains("hidden"))})})}),window.toggleCollapse=toggleCollapse;
   </script>
 
 </div>

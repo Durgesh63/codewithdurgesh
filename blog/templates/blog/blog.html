@@ -37,23 +37,6 @@
     </div>
 </div>
 <script>
-    $("#spinner").show();
-    $.ajax({
-        
-        url: "{% url 'getallpostdata' %}",
-        type:"post",
-        data:{model:'blogs', publish:'publish',api:'1@asRsus$&sdnzh?sdbxjdAVShagdnhassff'},
-        success:function(deta){
-            for(var datas in deta.request){
-                var postdate = new Date(deta.request[datas].date);
-                var data=`<a href="/blog/${deta.request[datas].slug}/"><div class="border px-4 my-5 bg-slate-100 rounded-lg shadow-lg py-3 lg:py-6 bg-gradient-to-r hover:to-[#ff9011] hover:from-[#ff6f00] hover:text-white  "><div class="font-bold underline">${deta.request[datas].title}</div><p><small>${postdate.toDateString()}</small></p><p><small>${deta.request[datas].meta_short_description}</small></p><div class="fw-bold mt-4">Learn more <i class="bi bi-arrow-right-circle-fill"></i></div></div></a>`;
-                $("#answer_get").append(data);
-                $("#spinner").hide();
-            }
-        },
-        complete: function (data) {
-                $("#spinner").hide();
-            },
-    });
+    $("#spinner").show(),$.ajax({url:"{% url 'getallpostdata' %}",type:"post",data:{model:"blogs",publish:"publish",api:"1@asRsus$&sdnzh?sdbxjdAVShagdnhassff"},success:function(e){for(var s in e.request){var t=new Date(e.request[s].date),a=`<a href="/blog/${e.request[s].slug}/"><div class="border px-4 my-5 bg-slate-100 rounded-lg shadow-lg py-3 lg:py-6 bg-gradient-to-r hover:to-[#ff9011] hover:from-[#ff6f00] hover:text-white  "><div class="font-bold underline">${e.request[s].title}</div><p><small>${t.toDateString()}</small></p><p><small>${e.request[s].meta_short_description}</small></p><div class="fw-bold mt-4">Learn more <i class="bi bi-arrow-right-circle-fill"></i></div></div></a>`;$("#answer_get").append(a),$("#spinner").hide()}},complete:function(e){$("#spinner").hide()}});
     </script>
 {% endblock main %}

@@ -16,7 +16,7 @@ class Fresherjob(models.Model):
     date = models.DateTimeField(auto_now = True,verbose_name = 'Post Date')
     slug = AutoSlugField(populate_from='title',unique_with=['id'],null=True,blank=True)
     description = models.TextField(null=True,blank=True,verbose_name = 'Blog Description')
-    image = models.URLField(max_length =500,null=True,blank=True,verbose_name = 'Image link')
+    image = models.URLField(max_length =500,null=True,default="https://res.cloudinary.com/anmoldev/image/upload/v1645635518/Screenshot_from_2022-02-23_22-25-18_eoq6r9.png",blank=True,verbose_name = 'Image link')
 
     application_link = models.URLField(max_length =500,null=True,blank=True,verbose_name = 'Form link')
 
