@@ -16,9 +16,9 @@ class Fresherjob(models.Model):
     date = models.DateTimeField(auto_now = True,verbose_name = 'Post Date')
     slug = AutoSlugField(populate_from='title',unique_with=['id'],null=True,blank=True)
     description = models.TextField(null=True,blank=True,verbose_name = 'Blog Description')
-    image = models.URLField(max_length =500,null=True,default="https://res.cloudinary.com/anmoldev/image/upload/v1645635518/Screenshot_from_2022-02-23_22-25-18_eoq6r9.png",blank=True,verbose_name = 'Image link')
+    image = models.URLField(max_length =1000,null=True,default="https://res.cloudinary.com/anmoldev/image/upload/v1645635518/Screenshot_from_2022-02-23_22-25-18_eoq6r9.png",blank=True,verbose_name = 'Image link')
 
-    application_link = models.URLField(max_length =500,null=True,blank=True,verbose_name = 'Form link')
+    application_link = models.URLField(max_length =1000,null=True,blank=True,verbose_name = 'Form link')
 
     company = models.CharField(max_length=500,null=True,blank=True,verbose_name = 'Company Name')
     job_experience = models.CharField(max_length=500,null=True,blank=True,verbose_name = 'Job Experience')
@@ -29,9 +29,9 @@ class Fresherjob(models.Model):
     role_name = models.CharField(max_length=500,null=True,blank=True,verbose_name = 'Role Name')
 
 
-    meta_title = models.CharField(max_length=100,verbose_name = 'Meta Title',null=True,blank=True)
-    meta_short_description = models.CharField(max_length=150,verbose_name = 'Short Description',null=True,blank=True)
-    meta_tags = models.CharField(max_length=50,verbose_name = 'Meta Tags',null=True,blank=True)
+    meta_title = models.CharField(max_length=500,verbose_name = 'Meta Title',null=True,blank=True)
+    meta_short_description = models.CharField(max_length=500,verbose_name = 'Short Description',null=True,blank=True)
+    meta_tags = models.CharField(max_length=300,verbose_name = 'Meta Tags',null=True,blank=True)
     
     def __str__(self):
         return self.title
