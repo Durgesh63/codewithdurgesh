@@ -48,7 +48,7 @@ class Fresher(sitemaps.Sitemap):
         return Fresherjob.objects.filter(publish='publish')
 
     def location(self,obj):
-        return f'/fresher-job/content/{obj.slug}/'
+        return f'/{obj.slug}/'
         
     def lastmod(self, obj):
         return obj.date

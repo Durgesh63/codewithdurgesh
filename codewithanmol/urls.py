@@ -9,7 +9,7 @@ admin.site.index_title = "Welcome to Codewithanmol Admin panel"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
-    path('fresher-job/', include('fresherjob.urls')),
+    path('', include('fresherjob.urls')),
 ]
 
 
