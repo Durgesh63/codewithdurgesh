@@ -53,3 +53,16 @@ class jovvacancies(models.Model):
         return self.company + ' ' + self.role_name + ' ' + self.qualifications
     class Meta:
         verbose_name = 'Vacancie'
+
+class jobcommments(models.Model):
+    sno = models.AutoField(primary_key=True)
+    slug = models.ForeignKey(Fresherjob, on_delete = models.CASCADE)
+    username = models.CharField(max_length=500,verbose_name = 'User Name')
+    email = models.EmailField(max_length=500,verbose_name = 'User Email')
+    comments = models.TextField()
+    post_time = models.DateTimeField(default=now)
+    approvel = models.BooleanField()
+    def __str__(self):
+        return self.username + ' ' +'++++++++>>>>>>>>>> '+ ' ' + self.comments 
+    class Meta:
+        verbose_name = 'Job Comments'
